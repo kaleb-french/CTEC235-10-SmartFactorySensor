@@ -1,11 +1,12 @@
-
+import 'dart:async';
 import 'dart:math';
 
 void main() async{
+  final controller = StreamController<double>();
   String data = await fetchSensorMetadata();
   print(data);
 
-  await for(double temperature in temperatureStream()){
+  controller.stream.listen((temperature){
     double tempInF = temperature * 1.8 + 32;
 
     if(temperature > 35.0){
@@ -15,7 +16,13 @@ void main() async{
     }else{
       print("Temperature ${temperature}C");
     }
+  });
+
+  await for (double temp in temperatureStream()){
+    controller.add(temp);
   }
+
+  await controller.close();
 }
 
 Future<String> fetchSensorMetadata() async {

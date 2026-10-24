@@ -7,3 +7,6 @@ created an async function that uses a future.delay to simulate a 2 second delay 
 Phase 2-
 Created a generator function that uses async to return values one after another with a delay inbetween via a aync for loop. Using yield returns a value from an async function without ending the function, this differs from even the return of a future becuase this return will complete the function when the future is complete. 
 
+Phase 3-
+Created a StreamController<double> and setup a listener using controller.stream.linsten() to handle the temp readings, used an await for loop to add the temps from the temperatureStream(). The controller allows the data to be passed in manually giving more control. It's important to setup the listener before dispatching events becuase the listener gives instructions on how it will be handled when events are dispatched to it. 
+
