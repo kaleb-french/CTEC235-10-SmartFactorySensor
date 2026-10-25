@@ -10,3 +10,6 @@ Created a generator function that uses async to return values one after another 
 Phase 3-
 Created a StreamController<double> and setup a listener using controller.stream.linsten() to handle the temp readings, used an await for loop to add the temps from the temperatureStream(). The controller allows the data to be passed in manually giving more control. It's important to setup the listener before dispatching events becuase the listener gives instructions on how it will be handled when events are dispatched to it. 
 
+Phase 4-
+When addError() is sent to the stream and rhis is caught by the onError callback. This allows a error message to be presented and the code continue much like a try-catch block. One of the main differences between a Try-Catch, is the onError with catch any error dipatched to the listen via the stream and a try catch with only catch whats in the try block. 
+

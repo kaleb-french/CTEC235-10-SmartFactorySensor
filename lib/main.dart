@@ -16,9 +16,23 @@ void main() async{
     }else{
       print("Temperature ${temperature}C");
     }
-  });
-
+  },
+    onError: (error) {
+      print("${error}");
+      print("Continuing Monitoring...");
+      },
+    onDone: () {
+      print("Sensor pipeline closed.");
+    }
+    );
+  
+  int count = 0;
+  
   await for (double temp in temperatureStream()){
+    count++;
+    if (count == 4){
+      controller.addError(Exception("Sensor Malfunction: No Signal!"));
+    }
     controller.add(temp);
   }
 
