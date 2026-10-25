@@ -13,3 +13,5 @@ Created a StreamController<double> and setup a listener using controller.stream.
 Phase 4-
 When addError() is sent to the stream and rhis is caught by the onError callback. This allows a error message to be presented and the code continue much like a try-catch block. One of the main differences between a Try-Catch, is the onError with catch any error dipatched to the listen via the stream and a try catch with only catch whats in the try block. 
 
+Phase 5-
+Tested all setups without hanging or errors execpt the execption thrown in step 4.
